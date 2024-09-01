@@ -1,0 +1,13 @@
+#!/bin/sh
+
+set -e
+
+if ! mountpoint -q /proc/fs/nfsd; then
+	mount -t nfsd nfsd /proc/fs/nfsd
+fi
+
+exportfs -ra > /dev/null
+rpc.nfsd -N3 -V4
+sm-notify
+
+exec rpc.mountd --foreground -N2 -N3 -V4

@@ -1,0 +1,17 @@
+daemonsdir="$PWD/mnt"
+
+enabled_oneshots=(
+    main/o1
+    main/o2
+    main/o3
+)
+
+enabled_daemons=(
+    main/d1
+    main/d2
+    main/d3
+)
+
+ttys=(1)
+autologin_tty1=mojyack
+

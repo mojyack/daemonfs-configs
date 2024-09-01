@@ -1,0 +1,8 @@
+#!/bin/bash
+
+repo=../../..
+source $repo/vars
+
+export XDG_RUNTIME_DIR
+
+exec pipewire

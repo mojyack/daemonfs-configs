@@ -1,0 +1,5 @@
+#!/bin/sh
+
+source ./config
+
+mountpoint -q /boot || mount /dev/disk/by-partuuid/$partuuid /boot

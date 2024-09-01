@@ -1,0 +1,5 @@
+#!/bin/zsh
+echo "oneshot 3"
+sleep 3
+echo "done"
+exit 1

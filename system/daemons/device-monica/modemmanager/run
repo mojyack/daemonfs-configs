@@ -1,0 +1,5 @@
+#!/bin/sh
+
+export MM_FILTER_RULE_QRTR=1
+export MM_FILTER_RULE_NET=1
+exec ModemManager --filter-policy=ALLOWLIST-ONLY

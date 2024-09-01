@@ -1,0 +1,6 @@
+#!/bin/bash
+
+repo=../../..
+source $repo/vars
+
+exec dbus-daemon --session --nofork --nopidfile --address "$DBUS_SESSION_BUS_ADDRESS"

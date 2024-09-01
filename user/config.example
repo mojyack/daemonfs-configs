@@ -1,0 +1,16 @@
+source ./vars
+
+enabled_services=(
+    main/dbus
+    main/pipewire
+    main/pipewire-pulse
+    main/wireplumber
+    main/fcitx
+)
+
+install_files=(
+    lib
+    vars
+)
+
+ttys=()

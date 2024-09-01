@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# build dhcpcd.conf
+config_path=/run/dhcpcd.conf
+rm -f "$config_path"
+for f in /etc/dhcpcd.conf.d/*; do
+    cat "$f" >> $config_path
+done
+
+exec dhcpcd -f "$config_path" -B

@@ -1,0 +1,26 @@
+source ./vars
+
+enabled_oneshots=(
+    main/up-loopback
+    main/mount-boot
+    main/zram
+    #main/wake-on-lan
+    device-mba6p1/disable-bd-prochot
+    device-mba6p1/disable-wakeup-source
+)
+
+enabled_daemons=(
+    main/dhcpcd
+    main/sshd
+    main/seatd
+    main/chronyd
+    main/nfs-server
+    device-mba6p1/fand
+
+    # iwd
+    main/dbus
+    main/iwd
+)
+
+ttys=(1 2)
+#autologin_tty1="mojyack"

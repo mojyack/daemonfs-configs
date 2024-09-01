@@ -1,0 +1,61 @@
+#!/bin/zsh
+set -e
+
+source ./config
+# config must define:
+#   daemonsdir: mountpoint of daemonfs
+#   enabled_oneshots: array of oneshots
+#   enabled_daemons: array of daemon directories
+#   ttys: array of number, to be automatically generated getty daemons
+#   autologin_tty$n: username to enable autologin in tty$n 
+
+# enable logging
+truncate -s 4096 "$daemonsdir/bootstrap"/{stdout,stderr}
+
+# run oneshots
+run_oneshot() {
+    echo "running oneshot $1"
+    cd "$PWD/oneshots/$1"
+    set +e
+    ./run
+    echo "oneshot $1 done code=$?"
+}
+
+for oneshot in $enabled_oneshots; do
+    run_oneshot "$oneshot" &
+done
+
+# start getty
+for n in $ttys; do
+    daemondir=$daemonsdir/getty-tty$n
+
+    # autologin
+    autologin_user=autologin_tty$n
+    autologin_user=${(P)autologin_user}
+    if [[ -n $autologin_user ]]; then
+        autologin_args="--autologin\n$autologin_user"
+    else
+        autologin_args=""
+    fi
+
+    mkdir "$daemondir"
+    echo "/sbin/chpst\n/sbin/agetty\n$autologin_args\ntty$n\nlinux" > $daemondir/args
+    echo up > $daemondir/state
+done
+
+# start daemons
+for daemon in $enabled_daemons; do
+    workdir=$PWD/daemons/$daemon
+    daemondir=$daemonsdir/${daemon:t}
+    mkdir "$daemondir"
+    echo "$workdir/run" > $daemondir/args
+    if [[ -e $workdir/log ]]; then
+        truncate -s 4096 "$daemondir"/{stdout,stderr}
+    fi
+    if [[ ! -e $workdir/down ]]; then
+        echo up > $daemondir/state
+    fi
+done
+
+# wait for forked oneshots
+wait

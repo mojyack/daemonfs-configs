@@ -1,0 +1,8 @@
+#!/bin/sh
+
+repo=../../..
+source $repo/vars
+source $repo/wait.sh
+wait_for_daemon qrtr
+
+exec rmtfs -r -P -s

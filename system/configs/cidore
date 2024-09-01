@@ -1,0 +1,23 @@
+source ./vars
+
+enabled_oneshots=(
+    main/up-loopback
+    main/mount-boot
+    main/zram
+    #main/wake-on-lan
+)
+
+enabled_daemons=(
+    main/dhcpcd
+    main/sshd
+    main/seatd
+    main/chronyd
+    main/nfs-server
+
+    # iwd
+    main/dbus
+    main/iwd
+)
+
+ttys=(1 2)
+autologin_tty1="mojyack"

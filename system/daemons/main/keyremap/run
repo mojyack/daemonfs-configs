@@ -1,0 +1,4 @@
+#!/bin/sh
+
+modprobe uinput
+exec keyremap run /etc/keyremap/config

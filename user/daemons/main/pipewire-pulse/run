@@ -1,0 +1,10 @@
+#!/bin/bash
+
+repo=../../..
+source $repo/vars
+source $repo/wait.sh
+wait_for_daemon pipewire
+
+export XDG_RUNTIME_DIR
+
+exec pipewire-pulse

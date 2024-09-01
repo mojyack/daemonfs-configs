@@ -1,0 +1,10 @@
+#!/bin/sh
+
+set -e
+
+source ./config
+
+modprobe zram
+zramctl /dev/zram0 --algorithm lzo-rle --size $size
+mkswap -U clear /dev/zram0
+swapon /dev/zram0

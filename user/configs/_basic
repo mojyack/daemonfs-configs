@@ -1,0 +1,11 @@
+source ./vars
+
+enabled_daemons=(
+    main/dbus
+    main/pipewire
+    main/pipewire-pulse
+    main/wireplumber
+    main/fcitx
+)
+
+ttys=()

@@ -1,0 +1,32 @@
+source ./vars
+
+enabled_oneshots=(
+    main/up-loopback
+    #main/mount-boot
+    main/zram
+    #main/wake-on-lan
+)
+
+enabled_daemons=(
+    device-monica/delayed-dhcpcd
+    main/sshd
+    main/seatd
+    main/chronyd
+    main/nfs-server
+    # alert slider support
+    main/keyremap
+    device-monica/modemmanager
+
+    # iwd
+    main/dbus
+    main/iwd
+
+    # qcom
+    qualcomm/qrtr
+    qualcomm/tqftpserv
+    qualcomm/pd-mapper
+    qualcomm/rmtfs
+)
+
+ttys=(1 2)
+autologin_tty1="mojyack"
