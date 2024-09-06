@@ -39,7 +39,7 @@ for n in $ttys; do
     fi
 
     mkdir "$daemondir"
-    echo "/sbin/chpst\n/sbin/agetty\n$autologin_args\ntty$n\nlinux" > $daemondir/args
+    echo "/sbin/agetty\n$autologin_args\ntty$n\nlinux" > $daemondir/args
     echo up > $daemondir/state
 done
 
