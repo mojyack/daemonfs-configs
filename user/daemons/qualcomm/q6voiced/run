@@ -1,0 +1,13 @@
+#!/bin/bash
+
+repo=../../..
+source $repo/vars
+source $repo/wait.sh
+
+export XDG_RUNTIME_DIR
+export DBUS_SESSION_BUS_ADDRESS
+export WAYLAND_DISPLAY=wayland-1
+
+script=$HOME/documents/lte/q6voiced-callbacks
+
+exec q6voiced 0 6 "$script"
