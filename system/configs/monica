@@ -26,6 +26,7 @@ enabled_daemons=(
     qualcomm/tqftpserv
     qualcomm/pd-mapper
     qualcomm/rmtfs
+    qualcomm/81voltd
 )
 
 ttys=(1 2)
