@@ -1,0 +1,4 @@
+#!/bin/sh
+
+modprobe uhid
+exec /usr/libexec/bluetooth/bluetoothd -n
