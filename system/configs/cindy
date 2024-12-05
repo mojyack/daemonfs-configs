@@ -1,0 +1,27 @@
+source ./vars
+
+enabled_oneshots=(
+    main/up-loopback
+    main/mount-boot
+    main/zram
+    #main/wake-on-lan
+
+    device-cindy/probe-broken-bluetooth
+)
+
+enabled_daemons=(
+    main/dhcpcd
+    main/sshd
+    main/seatd
+    main/chronyd
+    main/nfs-server
+    main/keyremap
+    main/bluetoothd
+
+    # iwd
+    main/dbus
+    main/iwd
+)
+
+ttys=(1 2)
+#autologin_tty1="mojyack"
