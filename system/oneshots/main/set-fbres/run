@@ -1,0 +1,9 @@
+#!/bin/sh
+
+source ./config
+
+while [ ! -e /dev/$fb ]; do
+    sleep 1
+done
+
+exec fbset -fb /dev/$fb -xres $xres -yres $yres
