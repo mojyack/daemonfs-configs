@@ -1,0 +1,2 @@
+#!/bin/sh
+exec ~/bin/brightnessctl-pocket-reform 10

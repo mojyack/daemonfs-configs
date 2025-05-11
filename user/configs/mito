@@ -1,0 +1,16 @@
+source ./vars
+
+enabled_oneshots=(
+    device-mito/brightness-init
+    device-mito/volume-init
+)
+
+enabled_daemons=(
+    main/dbus
+    main/pipewire
+    main/pipewire-pulse
+    main/wireplumber
+    main/fcitx
+)
+
+ttys=()
