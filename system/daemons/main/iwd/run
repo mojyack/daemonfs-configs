@@ -1,8 +1,7 @@
 #!/bin/sh
 
 repo=../../..
-source $repo/vars
 source $repo/wait.sh
-wait_for_daemon dbus
+wait_for_file /run/dbus/system_bus_socket
 
 exec /usr/libexec/iwd
