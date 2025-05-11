@@ -20,3 +20,11 @@ wait_for_daemon() {
         sleep 1
     done
 }
+
+# $1 path
+wait_for_file() {
+    while [[ ! -e $1 ]]; do
+        echo "waiting for file: $1"
+        sleep 1
+    done
+}
