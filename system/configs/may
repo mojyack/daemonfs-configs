@@ -6,6 +6,7 @@ enabled_oneshots=(
     main/zram
     main/set-fbres
     #main/wake-on-lan
+    device-mbp13p2/disable-nvme-d3cold
 )
 
 enabled_daemons=(
@@ -18,6 +19,8 @@ enabled_daemons=(
     # iwd
     main/dbus
     main/iwd
+
+    device-mbp13p2/tiny-dfr
 )
 
 ttys=(1 2)
